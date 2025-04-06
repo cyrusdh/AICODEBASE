@@ -131,43 +131,6 @@ Can you:
 3. Provide a fix that's consistent with my coding patterns
 ```
 
-## How To Use These Prompts
+[prompt6.md](https://github.com/user-attachments/files/19623789/prompt6.md)
 
-1. **Copy and paste the appropriate prompt** for your current stage in the project lifecycle
-2. **Fill in the bracketed placeholders** with your specific information
-3. **Send the completed prompt** to the AI system
-4. **Save the response** using your archival system
 
-These standardized prompts maintain consistency across AI interactions and ensure that you're leveraging your growing knowledge base effectively.
-
-I have an existing project that I want to convert into my standardized GitHub archival format. I'll provide you with the project files and information, and I need you to organize it into the markdown format used by my archival system.  
-
-PROJECT NAME: [Name of your project]  
-
-PROJECT DESCRIPTION:  
-[Brief description of what the project does and its purpose]  
-
-PROGRAMMING LANGUAGE(S): [e.g., JavaScript, Python, PowerShell]  
-
-KEY FEATURES:  
-- [Feature 1]  
-- [Feature 2]  
-- [Feature 3]  
-
-LESSONS LEARNED:  
-- [What worked well]  
-- [Challenges faced]  
-- [Solutions found]  
-- [Technical discoveries]  
-
-USAGE EXAMPLES:  
-[Basic examples of how to use the code]  
-
-HERE ARE THE PROJECT FILES:  
-
-[File 1 Name: example.js]  
-```javascript  
-// Paste code here  
-function example() {  
-  console.log("Hello world");  
-}  
