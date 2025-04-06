@@ -133,4 +133,34 @@ Can you:
 
 [prompt6.md](https://github.com/user-attachments/files/19623789/prompt6.md)
 
+I have an existing project that I want to convert into my standardized GitHub archival format. I'll provide you with the project files and information, and I need you to organize it into the markdown format used by my archival system.  
 
+PROJECT NAME: [Name of your project]  
+
+PROJECT DESCRIPTION:  
+[Brief description of what the project does and its purpose]  
+
+PROGRAMMING LANGUAGE(S): [e.g., JavaScript, Python, PowerShell]  
+
+KEY FEATURES:  
+- [Feature 1]  
+- [Feature 2]  
+- [Feature 3]  
+
+LESSONS LEARNED:  
+- [What worked well]  
+- [Challenges faced]  
+- [Solutions found]  
+- [Technical discoveries]  
+
+USAGE EXAMPLES:  
+[Basic examples of how to use the code]  
+
+HERE ARE THE PROJECT FILES:  
+
+[File 1 Name: example.js]  
+```javascript  
+// Paste code here  
+function example() {  
+  console.log("Hello world");  
+}  
