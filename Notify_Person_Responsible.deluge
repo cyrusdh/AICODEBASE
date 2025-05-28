@@ -1,0 +1,58 @@
+string button.Notify_Person_Responsible(String dealId)
+{
+    info "\ud83d\udd0d Starting Notify_Person_Responsible for dealId: " + dealId;
+    // 1. Fetch the Deal record
+    dealIdLong = dealId.toLong();
+    deal = zoho.crm.getRecordById("Deals",dealIdLong);
+    info "\u2192 Deal fetched: " + deal.get("id");
+    // 2. Lookup Person_Responsible
+    respInfo = deal.get("Person_Responsible");
+    if(respInfo == null)
+    {
+        return "No Person_Responsible set on this deal.";
+    }
+    userId = respInfo.get("id");
+    userName = respInfo.get("name");
+    info "\u2192 Person_Responsible ID: " + userId + ", Name: " + userName;
+    // 3. Fetch User record to get email
+    usrWrapper = zoho.crm.getRecordById("users",userId.toLong());
+    usrRecList = usrWrapper.get("users");
+    usrRec = usrRecList.get(0);
+    userEmail = usrRec.get("email");
+    info "\u2192 User email: " + userEmail;
+    if(userEmail == null || !userEmail.contains("@"))
+    {
+        return "Invalid email for Person_Responsible.";
+    }
+    // 4. Get Weekly_Action_Plan
+    weeklyPlan = deal.get("Weekly_Action_Plan");
+    if(weeklyPlan == null)
+    {
+        weeklyPlan = "No plan specified.";
+    }
+    info "\u2192 Weekly Action Plan: " + weeklyPlan;
+    // 5. Fetch Org ID via invokeConnector
+    m = Map();
+    orgResp = zoho.crm.invokeConnector("crm.getorg",m);
+    orgId = orgResp.get("organization").get("zgid").toString();
+    info "\u2192 Org ID: " + orgId;
+    // 6. Build the record URL using Potentials module
+    recordUrl = "https://crm.zoho.com/crm/org" + orgId + "/tab/Potentials/" + dealIdLong;
+    info "\u2192 Record URL: " + recordUrl;
+    // 7. Send the Cliq DM with plan + link
+    msgMap = Map();
+    msgMap.put("text","\ud83d\udea8 *Weekly Action Plan:* " + weeklyPlan + "\n" + "\ud83d\udd17 [View Deal Details](" + recordUrl + ")");
+    cliqResp = zoho.cliq.postToUser(userEmail,msgMap,"cliq_connection");
+    info "\u2192 Cliq response: " + cliqResp;
+    // 8. Fallback: send an email
+    sendmail
+    [
+        from :zoho.adminuserid
+        to :userEmail
+        subject :"Action Required: Deal \"" + deal.get("Deal_Name") + "\""
+        message :"Hi " + userName + ",\n\n" + "Weekly Action Plan: " + weeklyPlan + "\n\n" + "View details: " + recordUrl + "\n\n" + "Thanks!"
+    ]
+    info "\u2192 sendmail executed";
+    // 9. Return confirmation
+    return "Notification sent via Cliq and Email.";
+}
