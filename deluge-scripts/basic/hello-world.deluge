@@ -1,0 +1,15 @@
+// Basic Hello World Script
+// Copy and paste this into https://deluge.zoho.com/tryout
+
+// Simple message
+message = "Hello, Deluge World!";
+info message;
+
+// Working with variables
+name = "Developer";
+greeting = "Welcome to Deluge, " + name + "!";
+info greeting;
+
+// Current date
+today = today();
+info "Today's date: " + today;

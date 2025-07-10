@@ -1,0 +1,103 @@
+// Loops and Conditions in Deluge
+// Copy and paste this into https://deluge.zoho.com/tryout
+
+// Basic if-else
+score = 85;
+if(score >= 90)
+{
+    info "Grade: A";
+}
+else if(score >= 80)
+{
+    info "Grade: B";
+}
+else if(score >= 70)
+{
+    info "Grade: C";
+}
+else
+{
+    info "Grade: F";
+}
+
+// For loop with list
+numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+evenNumbers = List();
+oddNumbers = List();
+
+for each number in numbers
+{
+    if(number % 2 == 0)
+    {
+        evenNumbers.add(number);
+        info number + " is even";
+    }
+    else
+    {
+        oddNumbers.add(number);
+        info number + " is odd";
+    }
+}
+
+info "Even numbers: " + evenNumbers;
+info "Odd numbers: " + oddNumbers;
+
+// Working with maps in loops
+employees = List();
+
+// Create employee data
+emp1 = Map();
+emp1.put("name", "Alice");
+emp1.put("department", "Engineering");
+emp1.put("salary", 75000);
+
+emp2 = Map();
+emp2.put("name", "Bob");
+emp2.put("department", "Marketing");
+emp2.put("salary", 60000);
+
+emp3 = Map();
+emp3.put("name", "Charlie");
+emp3.put("department", "Engineering");
+emp3.put("salary", 80000);
+
+employees.add(emp1);
+employees.add(emp2);
+employees.add(emp3);
+
+// Process employees
+totalSalary = 0;
+engineerCount = 0;
+
+for each employee in employees
+{
+    name = employee.get("name");
+    dept = employee.get("department");
+    salary = employee.get("salary");
+    
+    info "Employee: " + name + " (" + dept + ") - $" + salary;
+    
+    totalSalary = totalSalary + salary;
+    
+    if(dept == "Engineering")
+    {
+        engineerCount = engineerCount + 1;
+    }
+}
+
+info "Total salary budget: $" + totalSalary;
+info "Number of engineers: " + engineerCount;
+
+// Error handling
+try 
+{
+    result = 100 / 0;  // This will cause an error
+    info "Result: " + result;
+}
+catch (ex)
+{
+    info "Error caught: " + ex;
+    info "Continuing with execution...";
+}
+
+info "Script completed successfully!";
