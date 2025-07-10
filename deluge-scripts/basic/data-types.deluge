@@ -1,0 +1,33 @@
+// Basic Data Types in Deluge
+// Copy and paste this into https://deluge.zoho.com/tryout
+
+// Strings
+firstName = "John";
+lastName = "Doe";
+fullName = firstName + " " + lastName;
+info "Full name: " + fullName;
+
+// Numbers
+age = 30;
+salary = 50000.50;
+info "Age: " + age;
+info "Salary: $" + salary;
+
+// Lists
+colors = {"red", "green", "blue", "yellow"};
+info "Colors: " + colors;
+info "First color: " + colors.get(0);
+info "Number of colors: " + colors.size();
+
+// Maps
+person = Map();
+person.put("name", fullName);
+person.put("age", age);
+person.put("salary", salary);
+info "Person data: " + person;
+
+// Booleans
+isActive = true;
+isAdmin = false;
+info "Active: " + isActive;
+info "Admin: " + isAdmin;
